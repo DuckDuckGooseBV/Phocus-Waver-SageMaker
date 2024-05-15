@@ -9,7 +9,7 @@ env:
   DEPLOYMENT_NAME: waver-sagemaker
   REQUEST_RETENTION_MODE: full
   REQUEST_RETENTION_TIME: 2419200
-  UBIOPS_TOKEN: ${{ secrets.UBIOPS_WAVER_TOKEN }}
+  UBIOPS_TOKEN: ${{ secrets.PHOCUS_TOKEN }}
 
   # The path to your deployment package in your repository
   DIR_PATH: ./
