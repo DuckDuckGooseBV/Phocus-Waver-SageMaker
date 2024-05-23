@@ -24,9 +24,7 @@ class Deployment:
         print("Processing request for deployment waver-sagemaker")
 
         # Convert the input to the SageMaker deployment to JSON format
-        audio_file_path = urlparse(
-            data["file_url"]
-        ).path
+        audio_file_path = get_path(data["file_url"])
 
         payload = json.dumps({
             'audio_path': audio_file_path,
@@ -43,3 +41,16 @@ class Deployment:
 
         return output
 
+
+def get_path(file_path):
+    # Extract path from url
+    audio_file_path = urlparse(
+        file_path
+    ).path
+
+    if len(audio_file_path) < 1:
+        return ''
+
+    # Remove first '/'
+    audio_file_path = audio_file_path[1:]
+    return audio_file_path
