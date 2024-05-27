@@ -21,6 +21,12 @@ class Deployment:
         print("Initialising deployment waver-sagemaker")
 
     def request(self, data):
+        """
+        Performs a request to call Waver in SageMaker.
+
+        :param data: The request data.
+        :return: The output of the Waver SageMaker request
+        """
         print("Processing request for deployment waver-sagemaker")
 
         # Convert the input to the SageMaker deployment to JSON format
@@ -42,10 +48,15 @@ class Deployment:
         return output
 
 
-def get_path(file_path):
-    # Extract path from url
+def get_path(file_path_url):
+    """
+    Extracts the path from the url.
+
+    :param file_path_url: The url to the audio file.
+    :return: The real path to the file.
+    """
     audio_file_path = urlparse(
-        file_path
+        file_path_url
     ).path
 
     if len(audio_file_path) < 1:
